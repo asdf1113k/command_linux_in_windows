@@ -1,3 +1,3 @@
 @echo off
-python "%~dp0clear.py"  # %~dp0 — путь к папке с .bat-файлом
+python "%~dp0py_file\clear.py"  # %~dp0 — путь к папке с .bat-файлом
 

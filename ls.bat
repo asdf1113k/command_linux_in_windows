@@ -1,4 +1,2 @@
 @echo off
-python "%~dp0ls.py" %1  # %~dp0 — полный путь к папке с .bat-файлом
-
-
+python "%~dp0py_file\ls.py" %* # %~dp0 — полный путь к папке с .bat-файлом
