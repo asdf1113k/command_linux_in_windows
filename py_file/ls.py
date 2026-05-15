@@ -1,9 +1,8 @@
 import os
 import sys
 from colorama import init, Fore, Back, Style
-init()  # или init(autoreset=True)
 
-# os.system('dir') # старый вывод папок и файлов
+def view_dir_or_file():
 
 # иницилизация colorama
     init(autoreset=True) # или init()
@@ -23,22 +22,39 @@ init()  # или init(autoreset=True)
     except ValueError:
         sys.exit()
 
-list_files_and_dir = os.listdir()
-for file_or_dir in list_files_and_dir:
-    if "." in file_or_dir[:1]: # file or dir hidden
-        print(Style.RESET_ALL + Back.MAGENTA + file_or_dir)
-    elif "." in file_or_dir[1:]: # file
-        print(Style.RESET_ALL + Fore.WHITE + file_or_dir)
-    else: # dir
-        print(Style.RESET_ALL + Fore.BLUE + file_or_dir)
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!! раскрашивание папок и файлов и вывод их в терминал !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    for dir in list_dirs:
+        if "." in dir[:1]:  # dir hidden
+            print(Fore.CYAN + dir, end=" | ")
+        else: # dir
+            print(Fore.BLUE + dir, end=" | ")
+    else:
+        print(end="\n")
+
+    for file in list_files:
+        if "." in file[:1]: # file hidden
+            print(Back.CYAN + file, end=" | ")
+        else:
+            print(Fore.WHITE + file, end=" | ")
+    else:
+        print(end="\n")
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!! просмотр содержимого указанной директории  !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # print(sys.argv[1])
+    # if "\\" in sys.argv[1]:
+    #     os.listdir((sys.argv[1]))
 
 
-if "dead" in sys.argv:
-    os.system('color 4')
-    os.system('dir /s')
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!! просто по приколу. Надо будет не забыть убрать !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if "dead" in sys.argv:
+        os.system('color 4')
+        os.system('dir /s')
 
-if "\\" in sys.argv[:-1]:
-    print("it work")
-    current_dir = os.getcwd()
-    print(current_dir)
-    # os.path("") # f"{os.getcwd()}"+"\\"+f"{sys.argv[:-1]}"
+if __name__ == '__main__':
+    view_dir_or_file()
