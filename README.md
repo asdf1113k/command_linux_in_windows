@@ -1,15 +1,16 @@
-# BETA
-
-проект находится в разработке, и так как можно просто установить bash от git себе как терминал в IDE то скорее всего он не будет до делан до конца.
-
-кому не пофиг вот [twitch chanel](https://www.twitch.tv/typeerr0r)
+# description
+набор батников(*.bat файлов) которые называются как команды в linux, которые просто запускают команды PowerShell
 
 # install
 
 ```bash
 git clone https://github.com/asdf1113k/command_linux_in_windows.git
 ```
+дальше нужно прописать путь к папке comand_linux_in_windows в переменной PATh
 
+```
+setx /M path "%path%;C:\ваш\путь\до\папки\command_linux_in_windows"
+```
 
 # notes developer
 убрать зависимость от ЯП python, сделать на ЯП bat
